@@ -1,0 +1,35 @@
+syntax = "proto3";
+option java_package = "com.yzq.blog.grpc.service.model";
+
+message Blog {
+	string busNo = 1;
+	string userNo = 2;
+	string title = 3;
+	string content = 4;
+}
+
+//首页博客列表
+message QueryLastRequest{
+	int32 size = 1;
+}
+message QueryLastResponse{
+    repeated Blog blog = 1;
+}
+
+//博客详情
+message QueryByBusNoRequest{
+	string busNo = 1;
+}
+message QueryByBusNoResponse{
+    Blog blog = 1;
+}
+
+//发布博客
+message AddBlogRequest{
+	string userNo = 1;
+	string title = 2;
+	string content = 3;
+}
+message AddBlogResponse{
+    bool result = 1;
+}

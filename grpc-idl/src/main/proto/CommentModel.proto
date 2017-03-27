@@ -1,0 +1,27 @@
+syntax = "proto3";
+option java_package = "com.yzq.blog.grpc.service.model";
+
+message Comment {
+	string busNo = 1;
+	string blogNo = 2;
+	string userNo = 3;
+	string content = 4;
+	string createTime = 5;
+}
+
+message QueryByBlogNoRequest{
+	string blogNo = 1;
+}
+message QueryByBlogNoResponse{
+    repeated Comment comment = 1;
+}
+
+
+message AddCommentRequest{
+	string blogNo = 1;
+	string userNo = 2;
+	string content = 3;
+}
+message AddCommentResponse{
+    bool result = 1;
+}

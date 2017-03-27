@@ -1,0 +1,13 @@
+syntax = "proto3";  
+option java_package = "com.yzq.blog.grpc.service";  
+import "UserModel.proto";
+
+service UserRpcService{
+	//注册
+    rpc register(RegisterRequest) returns (RegisterResponse);
+    //登录
+    rpc login(LoginRequest) returns (LoginResponse);
+    //获取用户信息
+    rpc getUserInfo(GetUserInfoRequest) returns (GetUserInfoResponse);
+}  
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>  
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"  
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">  
+    <head>
+        <title>首页</title>
+        <meta content="text/html;charset=UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link th:href="@{bootstrap-3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{bootstrap-3.3.7/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+        <script th:src="@{jquery-3.2.0/jquery-3.2.0.min.js}"></script>
+		<script th:src="@{bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+    </head>  
+    <body>
+    	<div class="container">
+		    <div class="panel panel-primary">
+	    		<div class="panel-heading">
+	    			<h3 class="panel-heading" th:if="${user != null}">博客列表-欢迎 <span th:text="${user.name}"></span> 回来！</h3>
+	    			<a class="btn btn-default" th:if="${user != null}" th:href="@{/blog/form}" role="button">发布</a>
+	    			<a class="btn btn-default" th:if="${user != null}" th:href="@{/user/logout}" role="button">退出</a>
+	    			<h3 class="panel-heading" th:if="${user == null}">博客列表</h3>
+	    			<a class="btn btn-default" th:if="${user == null}" th:href="@{/user/login}" role="button">登录</a>
+	    		</div>
+	    		<div class="panel-body">
+	    			<ul class="list-group">
+			        	<li class="list-group-item" th:each="blog:${blogs}">
+			        		<a th:href="@{'/blog/'+${blog.busNo}}">
+			        		<span th:text="${blog.busNo}"></span> - <span th:text="${blog.title}"></span>
+			        		</a>
+			        	</li>
+			        </ul>
+	    		</div>
+	    	</div>
+		</div>
+    </body>  
+</html> 

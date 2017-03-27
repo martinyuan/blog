@@ -1,0 +1,28 @@
+syntax = "proto3";
+option java_package = "com.yzq.blog.grpc.service.model";
+
+message RegisterRequest{
+	string name = 1;
+	string password = 2;
+}
+message RegisterResponse{
+    bool result = 1;
+}
+
+
+message LoginRequest{
+	string name = 1;
+	string password = 2;
+}
+message LoginResponse{
+    bool result = 1;
+    string userNo = 2;
+}
+
+message GetUserInfoRequest{
+	string userNo = 1;
+}
+message GetUserInfoResponse{
+   	string userNo = 1;
+    string name = 2;
+}

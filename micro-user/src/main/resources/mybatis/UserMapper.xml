@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="User">
+
+	<sql id="Base_Column_List">
+		id,
+		bus_no,
+		name,
+		reg_time,
+		password,
+		salt_no,
+		create_time,
+		update_time
+	</sql>
+
+	<select id="selectOneByName" parameterType="String" resultType="User" >
+		SELECT
+			<include refid="Base_Column_List" />
+		FROM t_user
+		WHERE name = #{name}
+	</select>
+	
+	<select id="selectOneByNo" parameterType="String" resultType="User" >
+		SELECT
+			<include refid="Base_Column_List" />
+		FROM t_user
+		WHERE bus_no = #{userNo}
+	</select>
+	
+	<insert id="insert" parameterType="User"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO t_user (
+			<include refid="Base_Column_List" />
+		)
+		VALUES
+		(
+			#{id},
+			#{busNo},
+			#{name},
+			#{regTime},
+			#{password},
+			#{saltNo},
+			#{createTime},
+			#{updateTime}
+		)
+	</insert>
+	
+</mapper>

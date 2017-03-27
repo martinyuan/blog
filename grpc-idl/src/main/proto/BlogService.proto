@@ -1,0 +1,14 @@
+syntax = "proto3";  
+option java_package = "com.yzq.blog.grpc.service";  
+import "BlogModel.proto";
+
+service BlogRpcService{
+	//查找最新发布博客
+    rpc queryLast(QueryLastRequest) returns (QueryLastResponse);
+    
+    //根据编号查找
+    rpc queryByBusNo(QueryByBusNoRequest) returns(QueryByBusNoResponse);
+    
+    //发布博客
+    rpc publish(AddBlogRequest) returns(AddBlogResponse);
+}

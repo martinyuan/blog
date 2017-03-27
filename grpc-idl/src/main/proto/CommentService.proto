@@ -1,0 +1,11 @@
+syntax = "proto3";  
+option java_package = "com.yzq.blog.grpc.service";  
+import "CommentModel.proto";
+
+service CommentRpcService{
+	//查找最新发布博客
+    rpc queryByBlogNo(QueryByBlogNoRequest) returns (QueryByBlogNoResponse);
+    
+    //添加评论
+    rpc addComment(AddCommentRequest) returns (AddCommentResponse);
+}

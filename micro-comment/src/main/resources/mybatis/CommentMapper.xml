@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Comment">
+
+	<sql id="Base_Column_List">
+		`id`,
+		`bus_no`,
+		`blog_no`,
+		`user_no`,
+		`content`,
+		`create_time`
+	</sql>
+
+	<select id="selectListByBlogNo" parameterType="String" resultType="Comment" >
+		SELECT
+			<include refid="Base_Column_List" />
+		FROM t_comment
+		WHERE blog_no = #{blogNo}
+		ORDER BY id DESC
+	</select>
+	
+	<insert id="insert" parameterType="Comment"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO t_comment (
+			<include refid="Base_Column_List" />
+		)
+		VALUES
+		(
+			#{id},
+			#{busNo},
+			#{blogNo},
+			#{userNo},
+			#{content},
+			#{createTime}
+		)
+	</insert>
+	
+</mapper>
