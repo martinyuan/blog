@@ -7,8 +7,8 @@
 	<artifactId>micro-user</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>blog_user</name>
-	<description>Demo project for Spring Boot</description>
+	<name>User</name>
+	<description>Demo project user model for Spring Boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
