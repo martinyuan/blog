@@ -14,5 +14,6 @@
         <module>micro-common</module>  
 		<module>micro-user</module>
 		<module>micro-web</module>
+		<module>micro-admin</module>
     </modules>
 </project>
